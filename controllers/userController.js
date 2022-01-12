@@ -27,27 +27,46 @@ module.exports = {
         });
     },
 //GET a singe user by its _id and populated thought and friend data
-getSingleUser(req, res){
-    User.findOne({ _id: req.params.userId})
-    .select('-__v')
-    .then(async (user) =>
-    !user
-    ? res.status(404).json({ message: 'No user with that ID, sorry mate' })
-    : res.json({
-        user,
-        //possibly need friend count here??? friends: await friend(req.params.userId),
-    })
-)
-.catch((err) => {
-    console.log(err);
-    return res.status(500).json(err);
-});
+    getSingleUser(req, res){
+        User.findOne({ _id: req.params.userId})
+        .select('-__v')
+        .then(async (user) =>
+        !user
+        ? res.status(404).json({ message: 'No user with that ID, sorry mate' })
+        : res.json({
+            user,
+            //possibly need friend count here??? friends: await friend(req.params.userId),
+            //need thoughts data too!!!
+        })
+    )
+    .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+    });
 },
-
+//POST a new user
+    createUser(req, res) {
+        User.create(req.body)
+        .then((user) => res.json(user))
+        .catch((err) => res.status(500).json(err));
+    },
+//PUT to update to update by _id
+    updateUser(req, res){
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $set: req.body },
+            { runValidators: true, new: true }
+        )
+        .then((user) => 
+        !user
+        ? res.json(404).json({ message: "No user with this id, feel free to create one instead" })
+        : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
+    }
 }
 
-//GET a singe user by its _id and populated thought and friend data
-//POST a new user
+
 //PUT to update to update by _id
 //DELETE by _id
 //BONUS: Remove a user's associated thoughts when deleted.
