@@ -20,7 +20,8 @@ const userSchema = new Schema(
         validate: [validateEmail, 'Please enter a valid email address'],
     },
     thoughts: [thoughtsSchema], //array of _id values reference the Thought model
-    friends: [this], //array of _id values referencing the User model (self-reference)
+    friends:  [{ type: Schema.Types.ObjectId, ref: 'User'}] //should this be User or Users
+    , //array of _id values referencing the User model (self-reference)
   },
   {
     toJSON: {
