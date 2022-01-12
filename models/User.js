@@ -2,6 +2,8 @@ const { Schema, model } = require('mongoose');
 const thoughtsSchema = require('./Thoughts');
 const reactionsSchema = require('./Reactions');
 
+//TODO: Create a virtual called friendCount that retrieves the length of the user's friends array field on query
+
 //Schema to create User model
 const userSchema = new Schema(
   {
@@ -17,8 +19,8 @@ const userSchema = new Schema(
         unique: true,
         validate: [validateEmail, 'Please fill a valid email address'],
     },
-    thoughts: [thoughtsSchema],
-    friends: [this],
+    thoughts: [thoughtsSchema], //array of _id values reference the Thought model
+    friends: [this], //array of _id values referencing the User model (self-reference)
   },
   {
     toJSON: {
