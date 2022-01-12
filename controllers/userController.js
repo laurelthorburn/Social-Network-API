@@ -63,11 +63,33 @@ module.exports = {
         : res.json(user)
         )
         .catch((err) => res.status(500).json(err));
-    }
+    },
+//DELETE by _id
+    deleteUser(req,res) {
+        User.findOneAndRemove({ _id: req.params.userId })
+        .then((user) =>
+            !user
+                ? res.status(404).json({ message: 'No user like this exists' })
+//BONUS: Remove a user's associated thoughts when deleted.
+        : Thoughts.findOneAndUpdate(
+            { users: req.params.userId },
+            { $pull: {users: req.params.userId } },
+            { new: true}
+        )
+    )
+    .then((thought) =>
+    !thought
+        ? res.status(404).json({ message: 'User was deleted, but no thoughts were found' })
+    : res.json({ message: 'User was deleted, nice job!' })
+    )
+    .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+    });
+    },
 }
 
 
-//PUT to update to update by _id
 //DELETE by _id
 //BONUS: Remove a user's associated thoughts when deleted.
 // --------------------------------------
