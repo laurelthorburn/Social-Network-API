@@ -87,11 +87,7 @@ module.exports = {
     res.status(500).json(err);
     });
     },
-}
-
-
-//DELETE by _id
-//BONUS: Remove a user's associated thoughts when deleted.
+};
 // --------------------------------------
 // /api/users/:userId/friends/:friendId
 // POST to add a new friend to a user's friend list
