@@ -17,7 +17,7 @@ const userSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-        validate: [validateEmail, 'Please fill a valid email address'],
+        validate: [validateEmail, 'Please enter a valid email address'],
     },
     thoughts: [thoughtsSchema], //array of _id values reference the Thought model
     friends: [this], //array of _id values referencing the User model (self-reference)
@@ -36,4 +36,5 @@ var validateEmail = function(email) {
 
 
 const User = model('user', userSchema);
+
 module.exports = User;
