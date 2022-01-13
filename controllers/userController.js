@@ -14,6 +14,11 @@ module.exports = {
 //GET ALL users
     getUsers(req, res) {
         User.find()
+        //populate user thoughts
+        .populate({path: 'thoughts', select: '-__v'})
+        //populate user friends
+        .populate({path: 'friends', select: '-__v'})
+        .select('__v')
         .then(async (users) => {
             const userObj = {
                 users,
@@ -29,6 +34,10 @@ module.exports = {
 //GET a singe user by its _id and populated thought and friend data
     getSingleUser(req, res){
         User.findOne({ _id: req.params.userId})
+            //populate user thoughts
+            .populate({path: 'thoughts', select: '-__v'})
+            //populate user friends
+            .populate({path: 'friends', select: '-__v'})
         .select('-__v')
         .then(async (user) =>
         !user

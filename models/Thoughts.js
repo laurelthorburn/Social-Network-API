@@ -1,6 +1,4 @@
 const { Schema, model } = require('mongoose');
-const userSchema = require('./User');
-
 
 //TODO: This will not be a model, but rather will be used as the reaction field's sub document schema in thr Thought model
 //Schema to create a reaction, not a model, sub doc to Thought model
@@ -28,7 +26,6 @@ const reactionsSchema = new Schema(
       toJSON: {
         getters: true,
       },
-      id: false,
     }
 );
 
@@ -47,9 +44,9 @@ const thoughtsSchema = new Schema(
             type: Date,
             default: Date.now(), //user getter method to format the timestamp on query
         },
-        username: {
+        username: { //don't forget to push the created thought's _id to the associated user's thoughts array field
             type: String,
-            require: true,
+            required: true,
         },
         reactions: 
 //array of nested documents created with the reactionSchema
@@ -58,12 +55,13 @@ const thoughtsSchema = new Schema(
     {
         toJSON: {
           virtuals: true,
+          getters: true,
         },
-        // id: false,
+        id: false,
       }
 );
 
 
-const Thoughts = model('thoughts', thoughtsSchema);
+const Thoughts = model('Thoughts', thoughtsSchema);
 
 module.exports = Thoughts;

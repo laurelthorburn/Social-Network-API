@@ -5,13 +5,18 @@ module.exports = {
 // GET to get all thoughts
 getThoughts(req, res) {
     Thoughts.find()
+        //populate thought reactions
+        .populate({path: 'reactions', select: '-__v'})
+        .select('__v')
     .then((thought) => res.json(thought))
     .catch((err) => res.status(500).json(err));
 },
 // GET to get a single thought by its _id
 getSingleThought(req, res) {
     Thoughts.findOne({ _id: req.params.thoughtId })
-    .select('-__v')
+    //populate thought reactions
+        .populate({path: 'reactions', select: '-__v'})
+        .select('-__v')
     .then((thought) =>
     !thought
     ? res.status(404).json({ message: 'No thought with that ID, drat' })
@@ -35,6 +40,9 @@ createThought(req, res) {
             { $set: req.body },
             { runValidators: true, new: true}
         )
+    //populate thought reactions
+        .populate({path: 'reactions', select: '-__v'})
+        .select('-__v')
         .then((thought) =>
         !thought
         ? res.json(404).json({ message: "No thought with this ID, go spend some time thinking..." })
@@ -60,9 +68,12 @@ addReaction(req, res) {
     console.log(req.body);
     Thoughts.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: { reactions: req.body }},
+        { $push: { reactions: req.body }},
         { runValidators: true, new: true}
     )
+        //populate thought reactions
+        .populate({path: 'reactions', select: '-__v'})
+        .select('-__v')
     .then((thought) =>
     !thought
     ? res.status(404).json({ message: "No thought found with this ID, sorry friend"})
