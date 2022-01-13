@@ -1,11 +1,11 @@
 const { User, Thoughts } = require('../models');
 
-module.export = {
+module.exports = {
 // /api/thoughts
 // GET to get all thoughts
 getThoughts(req, res) {
     Thoughts.find()
-    .then((thoughts) => res.json(thoughts))
+    .then((thought) => res.json(thought))
     .catch((err) => res.status(500).json(err));
 },
 // GET to get a single thought by its _id
@@ -71,7 +71,7 @@ addReaction(req, res) {
     .catch((err) => res.status(500).json(err));
 },
 // DELETE to pull and remove a reaction by the reaction's reactionId value
-    removeReaction(req, res) {
+    deleteReaction(req, res) {
         console.log('Adios reaction');
         console.log(req.body);
         Thoughts.findOneAndUpdate(
