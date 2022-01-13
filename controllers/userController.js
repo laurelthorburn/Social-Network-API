@@ -79,7 +79,7 @@ module.exports = {
     )
     .then((thought) =>
     !thought
-        ? res.status(404).json({ message: 'User was deleted, but no thoughts were found' })
+        ? res.status(404).json({ message: 'User was successfully deleted, user did not have any thoughts to delete.  Thank you for making my job just a little bit easier.' })
     : res.json({ message: 'User was deleted, nice job!' })
     )
     .catch((err) => {
