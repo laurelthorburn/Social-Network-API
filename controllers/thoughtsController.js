@@ -41,11 +41,20 @@ createThought(req, res) {
         : res.json(thought)
         )
         .catch((err) => res.status(500).json(err));
+    },
+// DELETE to remove a thought by its _id
+    deleteThought(req,res) {
+        Thoughts.findOneAndRemove({ _id: req.params.thoughtId })
+        .then((thought) =>
+        !thought
+        ? res.status(404).json({ message: "No thought like this exists" })
+        : User.deleteMany({ _id: { $in: thought.users } })
+        )
+        .then(() => res.json({ message: "User and thoughts deleted." }))
+        .catch((err) => res.status(500).json(err));
     }
 };
 
-// PUT to update a thought by its _id
-// DELETE to remove a thought by its _id
 
 // /api/thoughts/:thoughtId/reactions
 // POST to create a reaction stored in a single thought's reactions array field
