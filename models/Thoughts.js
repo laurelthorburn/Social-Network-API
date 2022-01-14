@@ -2,8 +2,6 @@ const { Schema, model } = require("mongoose");
 const reactionsSchema = require("./Reactions");
 const moment = require('moment');
 
-//TODO: getter method to format date
-
 //Schema to create a thought model
 const thoughtsSchema = new Schema(
   {
