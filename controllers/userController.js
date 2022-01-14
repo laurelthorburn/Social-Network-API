@@ -1,13 +1,5 @@
 const { User, Thoughts } = require('../models');
 
-
-// const userCount = async () =>
-//     User.aggregate()
-//     .count('userCount')
-//     .then((numberOfUsers) => numberOfUsers);
-
-//define friends up here with aggregation??
-
 // --------------------------------------
 // /api/users
 module.exports = {
@@ -44,8 +36,6 @@ module.exports = {
         ? res.status(404).json({ message: 'No user with that ID, sorry mate' })
         : res.json({
             user,
-            //possibly need friend count here??? friends: await friend(req.params.userId),
-            //need thoughts data too!!!
         })
     )
     .catch((err) => {

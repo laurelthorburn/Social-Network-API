@@ -1,7 +1,9 @@
 
 const { Schema, Types } = require('mongoose');
 
-//TODO: This will not be a model, but rather will be used as the reaction field's sub document schema in thr Thought model
+//TODO: Getter for date
+
+//This will not be a model, but rather will be used as the reaction field's sub document schema in thr Thought model
 //Schema to create a reaction, not a model, sub doc to Thought model
 const reactionsSchema = new Schema(
     {
