@@ -1,13 +1,9 @@
 const { Schema, model } = require('mongoose');
-const thoughtsSchema = require('./Thoughts');
 
 const validateEmail = function(email) {
   const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email)
 };
-
-
-//TODO: Create a virtual called friendCount that retrieves the length of the user's friends array field on query
 
 //Schema to create User model
 const userSchema = new Schema(
@@ -33,8 +29,16 @@ const userSchema = new Schema(
       virtuals: true,
       getters: true,
     },
+    id: false,
   }
 );
+
+
+//TODO: Create a virtual called friendCount that retrieves the length of the user's friends array field on query
+
+userSchema.virtual('friendCount', function(){
+  return this.friends.length;
+});
 
 
 const User = model('User', userSchema);

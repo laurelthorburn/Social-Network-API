@@ -15,10 +15,10 @@ module.exports = {
     getUsers(req, res) {
         User.find()
         //populate user thoughts
-        .populate({path: 'thoughts', select: '-__v'})
+        .populate('thoughts')
         //populate user friends
-        .populate({path: 'friends', select: '-__v'})
-        .select('__v')
+        .populate('friends')
+        .select('-__v')
         .then(async (users) => {
             const userObj = {
                 users,
@@ -101,10 +101,9 @@ module.exports = {
 // POST to add a new friend to a user's friend list
 addFriend(req, res) {
     console.log('You just made a friend, lucky you!');
-    console.log(req.body);
     User.findOneAndUpdate(
         { _id: req.params.userId},
-        { $addToSet: { friends: req.body } },
+        { $addToSet: { friends: req.params.friendId } },
         { runValidators: true, new: true}
     )
     .then((user) =>
@@ -117,10 +116,9 @@ addFriend(req, res) {
 // DELETE to remove a friend from a user's friend list
     removeFriend(req,res) {
         console.log("Darn man, I'm so sorry you lost a friend!");
-        console.log(req.body);
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friend: { friendId: req.params.friendId } } },
+            { $pull: { friends: req.params.friendId } },
             { runValidators: true, new: true }
         )
         .then((user) =>
