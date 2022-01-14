@@ -5,7 +5,7 @@ const { User, Thoughts } = require('../models');
 module.exports = {
 //GET ALL users
     getUsers(req, res) {
-        User.find()
+        User.find({})
         //populate user thoughts
         .populate('thoughts')
         //populate user friends
