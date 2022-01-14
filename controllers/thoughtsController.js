@@ -35,7 +35,6 @@ module.exports = {
         ).then((updatedUser) => {
             res.json(updatedUser);
         })
-        // res.json(thought);
       })
       .catch((err) => {
         console.log(err);
