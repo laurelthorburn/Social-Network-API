@@ -35,9 +35,13 @@ const thoughtsSchema = new Schema(
 
 //Create a virtual called reactionCount that retrieves the length of the thoughts reactions array field on query
 
-thoughtsSchema.virtual('reactionCount', function() {
-    return reactions.this.length;
-})
+// thoughtsSchema.virtual('reactionCount', function() {
+//     return reactions.this.length;
+// })
+
+thoughtsSchema.virtual("reactionCount").get(function() {
+  return this.reactions.length;
+});
 
 const Thoughts = model("Thoughts", thoughtsSchema);
 
