@@ -52,9 +52,9 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 git clone https://github.com/laurelthorburn/Social-Network-API.git
 ```
 * Ensure you are in the current working directory
-* Install dependencies (jest and inquirer) by opening the terminal (ctrl + j on windows) and running:
+* Install dependencies by opening the terminal (ctrl + j on windows) and running:
 ```
-npm install
+npm install || npm i
 ```
 * Run the project by typing the following in the terminal:
 ```
@@ -91,12 +91,7 @@ git push origin yourname-branch
 
   <a name="testsection"></a>
 ## Tests
-  1. Ensure you have installed jest (this was installed earlier when 'npm install' was run in the command line)
-  2. In the command line, write:
-```
-npm run test
-```
-  3. Confirm all four test files pass (see screenshot below). Test files are located in the tests folder and are titled: Employee.test.js, Engineer.test.js, Intern.test.js, and Manager.test.js
+No tests at this time
 
   <a name="questionssection"></a>
 ## Questions?
@@ -106,7 +101,7 @@ npm run test
   
   <a name="videosection"></a>
 ## Video
-  View video:https://drive.google.com/file/d/1m4HiXOib8MI8ZAha6zgAj42IsbLn_PDw/view?usp=sharing
+  View video: Coming Soon
 
   <a name="picsection"></a>
   ## Screenshots
@@ -116,8 +111,6 @@ npm run test
 
   <a name="linksection"></a>
   ## Links
-
-  Video Walk Through: Coming Soon...
   
   Github Site: https://github.com/laurelthorburn/Social-Network-API
 
