@@ -12,15 +12,14 @@ The purpose of this project was to utilize mongoDB, mongoose, and Express.js to 
 2. [ User Story. ](#usersection)
 3. [ Acceptance Criteria. ](#acceptancesection)
 4. [ Installation. ](#installsection)
-5. [ Usage. ](#usagesection)
-6. [ License. ](#licensesection)
-7. [ Contributing. ](#contribsection)
-8. [ Tests. ](#testsection)
-9. [ Questions. ](#questionssection)
-10. [ Video. ](#videosection)
+5. [ License. ](#licensesection)
+6. [ Contributing. ](#contribsection)
+7. [ Tests. ](#testsection)
+8. [ Questions. ](#questionssection)
+9. [ Video. ](#videosection)
 11. [ Screenshots. ](#picsection)
-12. [ Links. ](#linksection)
-13. [ Resources/Credit. ](#creditsection)
+11. [ Links. ](#linksection)
+12. [ Resources/Credit. ](#creditsection)
 
 <a name="usersection"></a>
 ## User Story
@@ -50,7 +49,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ## Installation
 * Clone the repository using:
 ```
-git clone https://github.com/laurelthorburn/Team-Profile-Generator.git
+git clone https://github.com/laurelthorburn/Social-Network-API.git
 ```
 * Ensure you are in the current working directory
 * Install dependencies (jest and inquirer) by opening the terminal (ctrl + j on windows) and running:
@@ -59,16 +58,8 @@ npm install
 ```
 * Run the project by typing the following in the terminal:
 ```
-node index.js
+npm run start || npm run dev (if nodemon is installed)
 ```
-
-
-<a name="usagesection"></a>
-## Usage
-* In order to access the user questions, open the terminal (right click index.js and click 'open in integrated terminal')
-* Answer all prompted questions until the terminal reads "Your team is now on display, navigate to the folder 'dist' and then click 'index.html'. Great job building your team!"
-* In the sidebar of the current directory, open the dist folder and click the newly generated index.html
-* To view the index.html, right click on the file and select "open with live server"
 
 <a name="licensesection"></a>
 ## License
@@ -126,11 +117,12 @@ npm run test
   <a name="linksection"></a>
   ## Links
 
-  Deployed SAMPLE Site: https://laurelthorburn.github.io/Team-Profile-Generator/
+  Video Walk Through: Coming Soon...
   
-  Github Site: https://github.com/laurelthorburn/Team-Profile-Generator
+  Github Site: https://github.com/laurelthorburn/Social-Network-API
 
   <a name="creditsection"></a>
 ## Resources/Credit
-* https://www.digitalocean.com/community/tutorials/nodejs-interactive-command-line-prompts
-* Fellow coder champion: [Ryan Paragas!](https://github.com/ParagasR)
+* https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
+* https://stackoverflow.com/questions/24964914/can-a-mongo-model-self-reference
+* https://stackoverflow.com/questions/24557580/how-to-return-the-objectid-or-id-of-an-document-in-mongodb-and-error-in-need
