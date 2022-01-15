@@ -65,7 +65,7 @@ module.exports = {
     },
 //DELETE by _id
     deleteUser(req,res) {
-        User.findOneAndRemove({ _id: req.params.userId })
+        User.findOneAndDelete({ _id: req.params.userId })
         .then((user) =>
             !user
                 ? res.status(404).json({ message: 'No user like this exists' })
@@ -73,7 +73,7 @@ module.exports = {
         : Thoughts.findOneAndUpdate(
             { users: req.params.userId },
             { $pull: {users: req.params.userId } },
-            { new: true}
+            { multi: true} //if reference exists in multiple documents
         )
     )
     .then((thought) =>

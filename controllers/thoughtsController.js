@@ -65,7 +65,7 @@ module.exports = {
   },
   // DELETE to remove a thought by its _id
   deleteThought(req, res) {
-    Thoughts.findOneAndRemove({ _id: req.params.thoughtId })
+    Thoughts.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "No thought like this exists" })
