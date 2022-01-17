@@ -105,9 +105,9 @@ No tests at this time
 
   <a name="picsection"></a>
   ## Screenshots
-  ![Screenshot of Test Screen](./dist/Assets/Images/screenshot1.png)
-  ![Screenshot of Sample Site](./dist/Assets/Images/screenshot2.png)
-  ![Screenshot of Terminal](./dist/Assets/Images/screenshot3.png)
+  ![Screenshot of Test Screen](./media/screenshot1.png)
+  ![Screenshot of Sample Site](./media/Images/screenshot2.png)
+  ![Screenshot of Terminal](./media/screenshot3.png)
 
   <a name="linksection"></a>
   ## Links
