@@ -105,9 +105,9 @@ No tests at this time
 
   <a name="picsection"></a>
   ## Screenshots
-  ![Screenshot of Test Screen](./media/screenshot1.png)
-  ![Screenshot of Sample Site](./media/Images/screenshot2.png)
-  ![Screenshot of Terminal](./media/screenshot3.png)
+  ![Screenshot of Find One User by ID](./media/Screenshot1.png)
+  ![Screenshot of Update a User](./media/Images/Screenshot2.png)
+  ![Screenshot of Add a Friend](./media/Screenshot3.png)
 
   <a name="linksection"></a>
   ## Links
