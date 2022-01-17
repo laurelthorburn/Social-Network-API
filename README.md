@@ -106,7 +106,7 @@ No tests at this time
   <a name="picsection"></a>
   ## Screenshots
   ![Screenshot of Find One User by ID](./media/Screenshot1.png)
-  ![Screenshot of Update a User](./media/Images/Screenshot2.png)
+  ![Screenshot of Update a User](./media/Screenshot2.png)
   ![Screenshot of Add a Friend](./media/Screenshot3.png)
 
   <a name="linksection"></a>
