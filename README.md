@@ -101,7 +101,7 @@ No tests at this time
   
   <a name="videosection"></a>
 ## Video
-  View video: Coming Soon
+  View video: https://drive.google.com/file/d/15jGrsoLFN71YA05zIln0W4iWwZNylVyL/view?usp=sharing
 
   <a name="picsection"></a>
   ## Screenshots
